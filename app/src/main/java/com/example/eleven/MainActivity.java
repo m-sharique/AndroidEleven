@@ -1,6 +1,9 @@
 package com.example.eleven;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -10,6 +13,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button nextPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         Toast.makeText(this, "onCreate called", Toast.LENGTH_SHORT).show();
+
+        nextPage = findViewById(R.id.button);
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DbActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
